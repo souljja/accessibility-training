@@ -13,19 +13,18 @@ input[type="radio"]:focus {
   box-shadow: 0 0 2px 2px #000;
 }
 
-form .select select:focus { 
+form .select select:focus {
   border-radius: 2px;
   outline: 0;
   box-shadow: 0 0 2px 2px #000;
 }
 
-button.button.is-link:focus:not(:active), button.button.is-text:focus  {
+button.button.is-link:focus:not(:active),
+button.button.is-text:focus {
   border-radius: 2px;
   outline: 0;
   box-shadow: 0 0 2px 2px #000;
 }
-
-
 
 input.input.is-danger:focus {
   border-radius: 2px;
@@ -99,12 +98,22 @@ input.input.is-success:focus {
   text-decoration: underline;
 }
 
-.content a {
+.content span a {
   color: #1d53aa;
   text-decoration: underline;
 }
 
-.content a .title {
+.content .soc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .soc a {
+  padding: 0 6px;
+}
+
+.columns a.box .title {
   text-decoration: none;
 }
 
@@ -129,6 +138,71 @@ fieldset {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../img/accessibility-hero-banner.jpg") no-repeat center center fixed;
   background-size: cover;
+}
+
+.second-level-navigation {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index:1;
+  opacity: 0.9;
+  background-color: #3b4147;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin: 0 60px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  display: flex;
+}
+
+.breadcrumb-item a {
+  flex-shrink: 0;
+  color: #C3DAF4;
+  white-space: pre;
+}
+
+.breadcrumb-item:not(:last-child):after {
+  content: '>';
+  color: #fff;
+  padding: 0 6px;
+  width: 100%;
+  height: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  background-color: #fff;
+  text-decoration: underline;
+  padding: 0 6px;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-bottom-right-radius: 6px;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+}
+
+.visually-hidden:focus {
+  height: auto;
+  width: auto;
+  clip: auto;
 }
 
 .tabs {
