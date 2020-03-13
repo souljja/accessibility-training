@@ -178,15 +178,30 @@ nav a:hover {
   height: 100%;
 }
 
-.skip-link {
+.fast-navigation {
   position: absolute;
   background-color: #fff;
   text-decoration: underline;
-  padding: 0 6px;
   left: 0;
   top: 0;
   z-index: 1;
   border-bottom-right-radius: 6px;
+  display:flex;
+  flex-direction: column;
+}
+
+.fast-navigation a {
+  margin: 6px;
+}
+
+.fast-navigation a:hover {
+  color: #3b4147;
+}
+
+.fast-navigation.visually-hidden:focus-within {
+  height: auto;
+  width: auto;
+  clip: auto;
 }
 
 .visually-hidden {
