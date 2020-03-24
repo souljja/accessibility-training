@@ -15,7 +15,7 @@
   <header class="hero hero-bg is-fullheight">
     <div class="hero-head">
       <nav class="navbar" aria-label="Main navigation">
-        <nav class="fast-navigation visually-hidden" aria-label="Skip Links">
+        <nav class="fast-navigation visually-hidden" aria-label="Skip Links" aria-haspopup="true">
           <a href="#about_us_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             About Us
@@ -54,39 +54,39 @@
             <a id="home_anchor" tabindex="0" class="navbar-item logo-link">
               <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" alt="main logo">
             </a>
-            <span class="navbar-burger burger" data-target="navbarMenu">
+            <span class="navbar-burger burger" data-target="navbarMenu" aria-haspopup="true" aria-owns="navbarMenu">
               <span></span>
               <span></span>
               <span></span>
             </span>
           </div>
           <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-              <span class="navbar-item">
+            <ul role="menu" class="navbar-end">
+              <li role="menuitem" class="navbar-item">
                 <a href="home" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fa fa-home"></span>
                   </span>
                   <span>Home</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a href="examples" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fab fa-superpowers"></span>
                   </span>
                   <span>Examples</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a href="documentation" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fa fa-book"></span>
                   </span>
                   <span>Documentation</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a class="is-link" href="https://github.com" target="_blank">
                   <span class="icon" aria-hidden="true">
                     <span class="fab fa-github"></span>
@@ -94,8 +94,8 @@
                   <span>View Source</span>
                   <span class="visually-hidden">&nbsp;will open in a new tab</span>
                 </a>
-              </span>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -112,7 +112,7 @@
               <p class="control is-expanded">
                 <label>
                   Email
-                  <input class="input">
+                  <input class="input" placeholder="Email" aria-placeholder="Email">
                 </label>
               </p>
               <p class="control">
@@ -125,12 +125,22 @@
     </div>
   </header>
   <nav class="second-level-navigation" aria-label="Breadcrumbs">
-    <ul class="breadcrumbs">
-      <li class="breadcrumb-item"><a href="great_expectaions">Great Expectattions</a></li>
-      <li class="breadcrumb-item"><a href="the_adventure">The adventures of Tom Sawyer</a></li>
-      <li class="breadcrumb-item"><a href="white_fang">White Fang</a></li>
-      <li class="breadcrumb-item"><a href="pride_and_prejudice">Pride and Prejudice</a></li>
-      <li class="breadcrumb-item"><a href="dorian_gray" aria-current="page">The Picture of Dorian Gray</a></li>
+    <ul role="menu" class="breadcrumbs">
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="great_expectaions">Great Expectattions</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="the_adventure">The adventures of Tom Sawyer</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="white_fang">White Fang</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="pride_and_prejudice">Pride and Prejudice</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="dorian_gray" aria-current="page">The Picture of Dorian Gray</a>
+      </li>
     </ul>
   </nav>
   <main id="main_content_anchor">
@@ -150,7 +160,8 @@
 
       <div class="content container">
         <h1 class="title">Hello World</h1>
-        <p>Lorem ipsum<sup><a href="first">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices
+        <p>Lorem ipsum<sup><a href="first">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan,
+          metus ultrices
           eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce
           erat
           odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
@@ -165,8 +176,8 @@
           <li>- Ut non enim metus.</li>
         </ul>
         <h3 class="title">Third level</h3>
-        <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="non_ante">non ante</a>. Phasellus lacus ex, semper ac tortor
-          nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
+        <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="non_ante">non ante</a>. Phasellus lacus ex,
+          semper ac tortornec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
         <ol class="ol-list">
           <li>Donec blandit a lorem id convallis.</li>
           <li>Cras gravida arcu at diam gravida gravida.</li>
@@ -177,8 +188,7 @@
           <li>Vivamus maximus ultricies pulvinar.</li>
         </ol>
         <blockquote class="blockquote">Ut venenatis, nisl scelerisque sollicitudin fermentum, quam libero hendrerit
-          ipsum, ut
-          blandit est tellus sit amet turpis.</blockquote>
+          ipsum, utblandit est tellus sit amet turpis.</blockquote>
         <p>Quisque at semper enim, eu hendrerit odio. Etiam auctor nisl et <em>justo sodales</em> elementum. Maecenas
           ultrices lacus quis neque consectetur, et lobortis nisi molestie.</p>
         <p>Sed sagittis enim ac tortor maximus rutrum. Nulla facilisi. Donec mattis vulputate risus in luctus. Maecenas
@@ -195,8 +205,7 @@
           malesuada nulla. Nulla facilisi. Nullam ac erat ante.</p>
         <h4 class="title">Fourth level</h4>
         <p>Nulla efficitur eleifend nisi, sit amet bibendum sapien fringilla ac. Mauris euismod metus a tellus laoreet,
-          at
-          elementum ex efficitur.</p>
+          at elementum ex efficitur.</p>
         <pre>
           &lt;!DOCTYPE html&gt;
           &lt;html&gt;
@@ -242,8 +251,7 @@
           felis. Etiam iaculis lorem ac nibh bibendum rhoncus. Nam interdum efficitur ligula sit amet ullamcorper. Etiam
           tristique, leo vitae porta faucibus, mi lacus laoreet metus, at cursus leo est vel tellus. Sed ac posuere est.
           Nunc ultricies nunc neque, vitae ultricies ex sodales quis. Aliquam eu nibh in libero accumsan pulvinar.
-          Nullam
-          nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam pharetra
+          Nullam nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam pharetra
           varius metus non pellentesque.</p>
         <h5 class="title">Fifth level</h5>
         <p>Aliquam sagittis rhoncus vulputate. Cras non luctus sem, sed tincidunt ligula. Vestibulum at nunc elit.
@@ -339,22 +347,28 @@
           </div>
         </div>
         <div class="tabs is-boxed is-centered main-menu" id="nav">
-          <ul>
-            <li data-target="pane-1" id="1" class="is-active" tabindex="0">
+          <ul role="tablist">
+            <li role="tab" data-target="pane-1" id="1" class="is-active" tabindex="0" aria-selected="true">
               <a>
-                <span class="icon is-small"><span class="fa fa-image"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fa fa-image"></span>
+                </span>
                 <span>Pictures</span>
               </a>
             </li>
-            <li data-target="pane-2" id="2" tabindex="-1">
+            <li role="tab" data-target="pane-2" id="2" tabindex="-1" aria-selected="false">
               <a>
-                <span class="icon is-small"><span class="fab fa-superpowers"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fab fa-superpowers"></span>
+                </span>
                 <span>Team</span>
               </a>
             </li>
-            <li data-target="pane-3" id="3" tabindex="-1">
+            <li role="tab" data-target="pane-3" id="3" tabindex="-1" aria-selected="false">
               <a>
-                <span class="icon is-small"><span class="fa fa-film"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fa fa-film"></span>
+                </span>
                 <span>Video</span>
               </a>
             </li>
@@ -590,7 +604,7 @@
         <div class="columns">
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Front end">
                 <h4 class="title">Front End Web Development</h4>
                 <p class="content">
                   Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
@@ -601,7 +615,7 @@
           </div>
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Backend end">
                 <h4 class="title">Back End Web Development</h4>
                 <p class="content">
                   Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
@@ -614,7 +628,7 @@
         <div class="columns">
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Front end development">
                 <h4 class="title">Front End Web Development</h4>
                 <p class="content">
                   Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
@@ -625,7 +639,7 @@
           </div>
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Back end development">
                 <h4 class="title">Back End Web Development</h4>
                 <p class="content">
                   Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
@@ -970,20 +984,20 @@
             <div class="control">
               <label class="label">
                 Name
-                <input class="input" type="text" placeholder="Text input">
+                <input class="input" type="text" placeholder="Text input" aria-placeholder="Text input"
+                  aria-required="true">
               </label>
             </div>
           </div>
-
           <div class="field">
             <label class="label">
               Username
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text">
-                <span class="icon is-small is-left">
+                <input class="input is-success" type="text" aria-required="true">
+                <span class="icon is-small is-left" aria-hidden="true">
                   <span class="fas fa-user"></span>
                 </span>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right" aria-hidden="true">
                   <span class="fas fa-check"></span>
                 </span>
               </div>
@@ -995,11 +1009,12 @@
             <label class="label">
               Email
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-                <span class="icon is-small is-left">
+                <input class="input is-danger" type="email" placeholder="Email input" aria-placeholder="Email input"
+                  value="hello@" aria-required="true">
+                <span class="icon is-small is-left" aria-hidden="true">
                   <span class="fas fa-envelope"></span>
                 </span>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right" aria-hidden="true">
                   <span class="fas fa-exclamation-triangle"></span>
                 </span>
               </div>
@@ -1024,13 +1039,13 @@
             <div class="control">
               <label class="label">
                 Message
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <textarea class="textarea" placeholder="Textarea" aria-placeholder="Textarea" aria-required="true"></textarea>
               </label>
             </div>
           </div>
 
           <label class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-checked="false">
             I agree to the <a href="">terms and conditions</a>
           </label>
 
@@ -1042,7 +1057,7 @@
                 </legend>
                 </legend>
                 <label class="radio">
-                  <input type="radio" name="question">
+                  <input type="radio" name="question" aria-checked="true" checked="true">
                   Yes
                 </label>
                 <label class="radio">
@@ -1055,7 +1070,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link">Submit</button>
+              <button class="button is-link" aria-pressed="false">Submit</button>
             </div>
             <div class="control">
               <button class="button is-text">Cancel</button>
@@ -1137,7 +1152,7 @@
     </div>
   </footer>
 
-  <div id="modal-card" class="modal modal-fx-3dSlit" aria-hidden="true">
+  <div id="modal-card" class="modal modal-fx-3dSlit" aria-modal="true">
     <div class="modal-background"></div>
     <div class="modal-content is-tiny">
       <div class="card">
@@ -1182,7 +1197,7 @@
     <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
   </div>
 
-  <div id="modal-image1" class="modal modal-fx-3dSlit" aria-hidden="true">
+  <div id="modal-image1" class="modal modal-fx-3dSlit" aria-modal="true">
     <div class="modal-background"></div>
     <div class="modal-content is-huge is-image">
       <img src="https://source.unsplash.com/random/?sig=1" alt="gallery photo 1">
@@ -1190,7 +1205,7 @@
     <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
   </div>
 
-  <div id="modal-image2" class="modal modal-fx-superScaled" aria-hidden=true>
+  <div id="modal-image2" class="modal modal-fx-superScaled" aria-modal=true>
     <div class="modal-background"></div>
     <div class="modal-content  is-image">
       <img src="https://source.unsplash.com/random/?sig=3" alt="gallery photo 2">
