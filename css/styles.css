@@ -13,6 +13,15 @@ input[type="radio"]:focus {
   box-shadow: 0 0 2px 2px #000;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.content.container p a, .skip-link, .card-content a {
+  color: #0e5c90;
+  text-decoration: underline;
+}
+
 form .select select:focus {
   border-radius: 2px;
   outline: 0;
@@ -267,7 +276,7 @@ nav a:hover {
 
 .embed-container {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 55%;
   height: 0;
   overflow: hidden;
   max-width: 100%;
