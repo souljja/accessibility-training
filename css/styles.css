@@ -147,6 +147,14 @@ fieldset {
   z-index:5;
   opacity: 0.9;
   background-color: #3b4147;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-on-site {
+  color: #fff;
+  margin: 0 6px;
+  flex-shrink: 0;
 }
 
 nav a:hover {

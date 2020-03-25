@@ -142,6 +142,7 @@
         <a href="dorian_gray" aria-current="page">The Picture of Dorian Gray</a>
       </li>
     </ul>
+    <span id="time_on_site" class="time-on-site" aria-label="Time notification" aria-live="polite"></span>
   </nav>
   <main id="main_content_anchor">
     <section id="about_us_anchor" aria-labelledby="about_us" class="section">
@@ -425,7 +426,7 @@
                 <div class="card">
                   <div class="card-image">
                     <div class="image is-4by3">
-                      <img src="./img/tab-3.jpg" class="modal-button" data-target="modal-image2" alt="picture 2">
+                      <img src="./img/tab-3.jpg" class="modal-button" data-target="modal-image2" alt="picture 3">
                     </div>
                   </div>
                   <div class="card-content">
@@ -1158,7 +1159,7 @@
       <div class="card">
         <div class="card-image">
           <div class="image is-4by3">
-            <img src="https://source.unsplash.com/random/?sig=2" alt="Jane Doe photo">
+            <img src="https://source.unsplash.com/random/?sig=2" alt="Jane Doe">
           </div>
         </div>
         <div class="card-content">
@@ -1168,9 +1169,9 @@
                 <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg" alt="">
               </div>
             </div>
-            <div class="media-content">
-              <h4 class="title">Jane Doe</h4>
-              <h5 class="subtitle">@jane_doe</h5>
+            <div class="media-content" aria->
+              <span class="title">Jane Doe</span>
+              <span class="subtitle">@jane_doe</span>
             </div>
           </div>
           <div class="content">
@@ -1194,7 +1195,7 @@
         </div>
       </div>
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
   <div id="modal-image1" class="modal modal-fx-3dSlit" aria-modal="true">
@@ -1202,7 +1203,7 @@
     <div class="modal-content is-huge is-image">
       <img src="https://source.unsplash.com/random/?sig=1" alt="gallery photo 1">
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
   <div id="modal-image2" class="modal modal-fx-superScaled" aria-modal=true>
@@ -1210,7 +1211,7 @@
     <div class="modal-content  is-image">
       <img src="https://source.unsplash.com/random/?sig=3" alt="gallery photo 2">
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>

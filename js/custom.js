@@ -7,6 +7,16 @@
   });
 })();
 
+var minutes = 0;
+setInterval(function () {
+  var timePlaceholderNode = document.getElementById('time_on_site');
+  if (timePlaceholderNode) {
+    minutes++;
+    var textContent = minutes + ' ' + (minutes > 1 ? 'minutes': 'minute') + ' on site';
+    timePlaceholderNode.textContent = textContent;
+  }
+}, 1000 * 60);
+
 var ARROW_UP_KEY = 38;
 var ARROW_DOWN_KEY = 40;
 var ARROW_RIGHT_KEY = 39;
