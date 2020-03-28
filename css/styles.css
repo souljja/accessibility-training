@@ -188,7 +188,7 @@ nav a:hover {
 }
 
 .breadcrumb-item:not(:last-child):after {
-  content: '>';
+  content: '>' / '';
   color: #fff;
   padding: 0 6px;
   width: 100%;
@@ -378,7 +378,7 @@ nav a:hover {
 
 @media screen and (max-width: 1087px) {
   .navbar-menu {
-    background-color: #888;
+    background-color: transparent;
   }
 }
 
@@ -421,6 +421,10 @@ li {
   width: 40px;
   height: 40px;
   background-size: contain;
+}
+
+.burger, .burger:hover {
+  background-color: #fff;
 }
 
 .footer {
