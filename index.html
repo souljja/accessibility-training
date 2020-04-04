@@ -54,7 +54,8 @@
             <a id="home_anchor" tabindex="0" class="navbar-item logo-link">
               <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" alt="main logo">
             </a>
-            <button class="navbar-burger burger" aria-label="Menu" data-target="navbarMenu" aria-haspopup="true" aria-owns="navbarMenu">
+            <button class="navbar-burger burger" aria-label="Menu" data-target="navbarMenu" aria-haspopup="true"
+              aria-owns="navbarMenu">
               <span></span>
               <span></span>
               <span></span>
@@ -351,38 +352,30 @@
             <h3 class="subtitle">We are always in touch we the outside world</h3>
           </div>
         </div>
-        <div class="tabs is-boxed is-centered main-menu" id="nav">
-          <ul role="tablist">
-            <li role="tab" data-target="pane-1" id="1" class="is-active" tabindex="0" aria-selected="true">
-              <a>
-                <span class="icon is-small" aria-hidden="true">
-                  <span class="fa fa-image"></span>
-                </span>
-                <span>Pictures</span>
-              </a>
-            </li>
-            <li role="tab" data-target="pane-2" id="2" tabindex="-1" aria-selected="false">
-              <a>
-                <span class="icon is-small" aria-hidden="true">
-                  <span class="fab fa-superpowers"></span>
-                </span>
-                <span>Team</span>
-              </a>
-            </li>
-            <li role="tab" data-target="pane-3" id="3" tabindex="-1" aria-selected="false">
-              <a>
-                <span class="icon is-small" aria-hidden="true">
-                  <span class="fa fa-film"></span>
-                </span>
-                <span>Video</span>
-              </a>
-            </li>
-          </ul>
+        <div role="tablist" class="tabs is-boxed is-centered main-menu" id="nav">
+          <button role="tab" data-target="pane-1" id="1" class="is-active" tabindex="0" aria-selected="true">
+            <span class="icon is-small" aria-hidden="true">
+              <span class="fa fa-image"></span>
+            </span>
+            <span>Pictures</span>
+          </button>
+          <button role="tab" data-target="pane-2" id="2" tabindex="-1" aria-selected="false">
+            <span class="icon is-small" aria-hidden="true">
+              <span class="fab fa-superpowers"></span>
+            </span>
+            <span>Team</span>
+          </button>
+          <button role="tab" data-target="pane-3" id="3" tabindex="-1" aria-selected="false">
+            <span class="icon is-small" aria-hidden="true">
+              <span class="fa fa-film"></span>
+            </span>
+            <span>Video</span>
+          </button>
         </div>
       </div>
 
       <div class="tab-content container">
-        <div role="tabpanel" class="tab-pane is-active level" id="pane-1">
+        <div role="tabpanel" class="tab-pane is-active level" id="pane-1" aria-labelledby="1">
           <div class="container">
             <div class="columns features">
               <div class="column is-4">
@@ -448,7 +441,7 @@
           </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane" id="pane-3">
+        <div role="tabpanel" class="tab-pane" id="pane-2" aria-labelledby="2" hidden>
           <div class="columns medias">
             <div class="column">
               <div class="media">
@@ -513,7 +506,7 @@
           </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane" id="pane-4">
+        <div role="tabpanel" class="tab-pane" id="pane-3" aria-labelledby="3" hidden>
           <div class="columns is-centered">
             <div class="column is-three-quarters">
               <div class="title has-text-centered">Inspired video</div>
