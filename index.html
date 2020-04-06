@@ -80,12 +80,30 @@
                 </a>
               </li>
               <li role="menuitem" class="navbar-item">
-                <a href="documentation" class="is-link">
+                <button id="navigation_menu_button" class="is-link" aria-expanded="false" aria-haspopup="true">
                   <span class="icon" aria-hidden="true">
                     <span class="fa fa-book"></span>
                   </span>
                   <span>Documentation</span>
-                </a>
+                </button>
+                <ul id="navigation_menu" role="menu" class="navigation-menu" hidden>
+                  <li role="none">
+                    <a role="menuitem" tabindex="-1">Administration</a>
+                  </li>
+                  <li role="none">
+                    <a role="menuitem" tabindex="-1">Team Settings</a>
+                  </li>
+                  <li role="none">
+                    <a role="menuitem" tabindex="-1">Manage Your Team</a>
+                  </li>
+                  <li role="none">
+                    <a role="menuitem" tabindex="-1">Invitations</a>
+                  </li>
+                  <hr role="separator">
+                  <li role="none">
+                    <a role="menuitem" tabindex="-1">Authentication</a>
+                  </li>
+                </ul>
               </li>
               <li role="menuitem" class="navbar-item">
                 <a class="is-link" href="https://github.com" target="_blank">
@@ -373,7 +391,6 @@
           </button>
         </div>
       </div>
-
       <div class="tab-content container">
         <div role="tabpanel" class="tab-pane is-active level" id="pane-1" aria-labelledby="1">
           <div class="container">
@@ -440,7 +457,6 @@
             </div>
           </div>
         </div>
-
         <div role="tabpanel" class="tab-pane" id="pane-2" aria-labelledby="2" hidden>
           <div class="columns medias">
             <div class="column">
@@ -505,7 +521,6 @@
             </div>
           </div>
         </div>
-
         <div role="tabpanel" class="tab-pane" id="pane-3" aria-labelledby="3" hidden>
           <div class="columns is-centered">
             <div class="column is-three-quarters">

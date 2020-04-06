@@ -22,6 +22,86 @@ var ARROW_DOWN_CODE = 'ArrowDown';
 var ARROW_RIGHT_CODE = 'ArrowRight';
 var ARROW_LEFT_CODE = 'ArrowLeft';
 
+var navigationMenuButton = document.getElementById('navigation_menu_button');
+var navigationMenu = document.getElementById('navigation_menu');
+var navigationMenuItems = document.querySelectorAll('#navigation_menu li');
+var navigationMenuLinks = document.querySelectorAll('#navigation_menu li a');
+
+navigationMenuButton.onclick = function () {
+  navigationMenu.toggleAttribute('hidden');
+  if (!navigationMenu.hasAttribute('hidden')) {
+    focusLink(navigationMenuItems, 0);
+  }
+};
+
+navigationMenu.addEventListener('focusout', function (event) {
+  if(!~getElementIndex(navigationMenuLinks, event.relatedTarget)) {
+    navigationMenu.toggleAttribute('hidden');
+  }
+});
+
+navigationMenu.onkeydown = function (event) {
+  var listElement = event.target.closest('li');
+  var length = navigationMenuItems.length;
+  if (listElement) {
+    var currentIndex = getElementIndex(navigationMenuItems, listElement);
+    var targetIndex;
+    if (!~currentIndex) {
+      return;
+    }
+    switch (event.keyCode) {
+      case KEY_CODE.ARROW_DOWN:
+      case KEY_CODE.ARROW_LEFT: {
+        event.preventDefault();
+        targetIndex = currentIndex === 0 ? String(length - 1) : String(currentIndex - 1);
+        break;
+      }
+      case KEY_CODE.ARROW_UP:
+      case KEY_CODE.ARROW_RIGHT: {
+        event.preventDefault();
+        targetIndex = currentIndex + 1 === length ? '0' : String(currentIndex + 1);
+        break;
+      }
+      case KEY_CODE.HOME: {
+        event.preventDefault();
+        targetIndex = '0';
+        break;
+      }
+      case KEY_CODE.END: {
+        event.preventDefault();
+        targetIndex = String(length - 1);
+        break;
+      }
+    }
+    if (targetIndex) {
+      focusLink(navigationMenuItems, targetIndex);
+    }
+  }
+}
+
+function getElementIndex(items, element) {
+  var currentIndex = -1;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] === element) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  return currentIndex;
+}
+
+function focusLink(items, index) {
+  var targetItem;
+  if (items) {
+    targetItem = items[index];
+  }
+
+  if (targetItem && targetItem.firstElementChild && targetItem.firstElementChild.focus) {
+    targetItem.firstElementChild.focus();
+  }
+}
+
 var tabMenu = document.getElementById("nav");
 var tabElements = document.querySelectorAll("#nav button");
 tabMenu.onclick = function (event) {
