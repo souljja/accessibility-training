@@ -199,10 +199,28 @@ nav button:focus {
   top: 60px;
   padding: .5rem .75rem;
   width: 100%;
+  box-sizing: content-box;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.navigation-menu li {
+  padding: 6px;
+  white-space: nowrap;
 }
 
 .navigation-menu hr {
   margin: 0.5rem 0;
+  background-color: #000000;
+}
+
+.navigation-menu li a {
+  text-decoration: underline;
+}
+
+.navigation-menu li a:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 .breadcrumbs {

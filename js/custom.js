@@ -17,18 +17,29 @@ setInterval(function () {
   }
 }, 1000 * 60);
 
-var ARROW_UP_CODE = 'ArrowUp';
-var ARROW_DOWN_CODE = 'ArrowDown';
-var ARROW_RIGHT_CODE = 'ArrowRight';
-var ARROW_LEFT_CODE = 'ArrowLeft';
+var KEY_CODE = {
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_LEFT: 'ArrowLeft',
+  HOME: 'Home',
+  END: 'End',
+  ESCAPE: 'Escape',
+};
 
 var navigationMenuButton = document.getElementById('navigation_menu_button');
 var navigationMenu = document.getElementById('navigation_menu');
 var navigationMenuItems = document.querySelectorAll('#navigation_menu li');
 var navigationMenuLinks = document.querySelectorAll('#navigation_menu li a');
 
+function closeMenu() {
+  navigationMenu.setAttribute('hidden', '');
+  navigationMenuButton.setAttribute('aria-expanded', false);
+}
+
 navigationMenuButton.onclick = function () {
-  navigationMenu.toggleAttribute('hidden');
+  navigationMenu.removeAttribute('hidden');
+  navigationMenuButton.setAttribute('aria-expanded', true);
   if (!navigationMenu.hasAttribute('hidden')) {
     focusLink(navigationMenuItems, 0);
   }
@@ -36,9 +47,11 @@ navigationMenuButton.onclick = function () {
 
 navigationMenu.addEventListener('focusout', function (event) {
   if(!~getElementIndex(navigationMenuLinks, event.relatedTarget)) {
-    navigationMenu.toggleAttribute('hidden');
+    closeMenu();
   }
 });
+
+navigationMenu.onclick = closeMenu;
 
 navigationMenu.onkeydown = function (event) {
   var listElement = event.target.closest('li');
@@ -49,15 +62,15 @@ navigationMenu.onkeydown = function (event) {
     if (!~currentIndex) {
       return;
     }
-    switch (event.keyCode) {
-      case KEY_CODE.ARROW_DOWN:
-      case KEY_CODE.ARROW_LEFT: {
+    switch (event.code) {
+      case KEY_CODE.ARROW_UP:
+      case KEY_CODE.ARROW_RIGHT: {
         event.preventDefault();
         targetIndex = currentIndex === 0 ? String(length - 1) : String(currentIndex - 1);
         break;
       }
-      case KEY_CODE.ARROW_UP:
-      case KEY_CODE.ARROW_RIGHT: {
+      case KEY_CODE.ARROW_DOWN:
+      case KEY_CODE.ARROW_LEFT: {
         event.preventDefault();
         targetIndex = currentIndex + 1 === length ? '0' : String(currentIndex + 1);
         break;
@@ -70,6 +83,11 @@ navigationMenu.onkeydown = function (event) {
       case KEY_CODE.END: {
         event.preventDefault();
         targetIndex = String(length - 1);
+        break;
+      }
+      case KEY_CODE.ESCAPE: {
+        event.preventDefault();
+        navigationMenuButton.focus();
         break;
       }
     }
@@ -115,16 +133,16 @@ tabMenu.onkeydown = function (event) {
   var listElement = event.target;
   if (listElement) {
     var id = parseInt(listElement.id);
-    var liElementsLength = liElements.length;
+    var tabElementsLength = liElements.length;
     switch (event.code) {
-      case ARROW_DOWN_CODE:
-      case ARROW_LEFT_CODE: {
+      case KEY_CODE.ARROW_DOWN:
+      case KEY_CODE.ARROW_LEFT: {
         event.preventDefault();
         targetId = id === 1 ? String(tabElementsLength) : String(id - 1);
         break;
       }
-      case ARROW_UP_CODE:
-      case ARROW_RIGHT_CODE: {
+      case KEY_CODE.ARROW_UP:
+      case KEY_CODE.ARROW_RIGHT: {
         event.preventDefault();
         targetId = id === tabElementsLength ? '1' : String(id + 1);
         break;
