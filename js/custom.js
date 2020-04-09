@@ -133,7 +133,8 @@ tabMenu.onkeydown = function (event) {
   var listElement = event.target;
   if (listElement) {
     var id = parseInt(listElement.id);
-    var tabElementsLength = liElements.length;
+    var tabElementsLength = tabElements.length;
+    var targetId;
     switch (event.code) {
       case KEY_CODE.ARROW_DOWN:
       case KEY_CODE.ARROW_LEFT: {
