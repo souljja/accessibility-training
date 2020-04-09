@@ -15,36 +15,36 @@
   <header class="hero hero-bg is-fullheight">
     <div class="hero-head">
       <nav class="navbar" aria-label="Main navigation">
-        <nav class="fast-navigation visually-hidden" aria-label="Skip Links">
-          <a href="#about_us_anchor">
+        <nav class="fast-navigation visually-hidden" aria-label="Skip Links" aria-haspopup="true">
+          <a class="skip-link" href="#about_us_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             About Us
           </a>
-          <a href="#key_features_anchor">
+          <a class="skip-link" href="#key_features_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Key Features
           </a>
-          <a href="#list_of_topics_anchor">
+          <a class="skip-link" href="#list_of_topics_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             List Of Topics
           </a>
-          <a href="#upcoming_events_anchor">
+          <a class="skip-link" href="#upcoming_events_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Upcoming Events
           </a>
-          <a href="#services_anchor">
+          <a class="skip-link" href="#services_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Services
           </a>
-          <a href="#past_events_photos_anchor">
+          <a class="skip-link" href="#past_events_photos_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Past Events Photos
           </a>
-          <a href="#forum_anchor">
+          <a class="skip-link" href="#forum_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Forum
           </a>
-          <a href="#contact_us_anchor">
+          <a class="skip-link" href="#contact_us_anchor">
             <span class="visually-hidden">Jump to section&nbsp;</span>
             Contact us
           </a>
@@ -54,39 +54,39 @@
             <a id="home_anchor" tabindex="0" class="navbar-item logo-link">
               <img src="https://www.epam.com/content/dam/epam/global/logo_white-blue.svg" alt="main logo">
             </a>
-            <span class="navbar-burger burger" data-target="navbarMenu">
+            <button class="navbar-burger burger" aria-label="Menu" data-target="navbarMenu" aria-haspopup="true" aria-owns="navbarMenu">
               <span></span>
               <span></span>
               <span></span>
-            </span>
+            </button>
           </div>
           <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-              <span class="navbar-item">
+            <ul role="menu" class="navbar-end">
+              <li role="menuitem" class="navbar-item">
                 <a href="home" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fa fa-home"></span>
                   </span>
                   <span>Home</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a href="examples" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fab fa-superpowers"></span>
                   </span>
                   <span>Examples</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a href="documentation" class="is-link">
                   <span class="icon" aria-hidden="true">
                     <span class="fa fa-book"></span>
                   </span>
                   <span>Documentation</span>
                 </a>
-              </span>
-              <span class="navbar-item">
+              </li>
+              <li role="menuitem" class="navbar-item">
                 <a class="is-link" href="https://github.com" target="_blank">
                   <span class="icon" aria-hidden="true">
                     <span class="fab fa-github"></span>
@@ -94,8 +94,8 @@
                   <span>View Source</span>
                   <span class="visually-hidden">&nbsp;will open in a new tab</span>
                 </a>
-              </span>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -112,7 +112,7 @@
               <p class="control is-expanded">
                 <label>
                   Email
-                  <input class="input">
+                  <input class="input" placeholder="Email" aria-placeholder="Email">
                 </label>
               </p>
               <p class="control">
@@ -125,13 +125,24 @@
     </div>
   </header>
   <nav class="second-level-navigation" aria-label="Breadcrumbs">
-    <ul class="breadcrumbs">
-      <li class="breadcrumb-item"><a href="great_expectaions">Great Expectattions</a></li>
-      <li class="breadcrumb-item"><a href="the_adventure">The adventures of Tom Sawyer</a></li>
-      <li class="breadcrumb-item"><a href="white_fang">White Fang</a></li>
-      <li class="breadcrumb-item"><a href="pride_and_prejudice">Pride and Prejudice</a></li>
-      <li class="breadcrumb-item"><a href="dorian_gray" aria-current="page">The Picture of Dorian Gray</a></li>
+    <ul role="menu" class="breadcrumbs">
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="great_expectaions">Great Expectattions</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="the_adventure">The adventures of Tom Sawyer</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="white_fang">White Fang</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="pride_and_prejudice">Pride and Prejudice</a>
+      </li>
+      <li role="menuitem" class="breadcrumb-item">
+        <a href="dorian_gray" aria-current="page">The Picture of Dorian Gray</a>
+      </li>
     </ul>
+    <span id="time_on_site" class="time-on-site" aria-label="Time notification" aria-live="polite"></span>
   </nav>
   <main id="main_content_anchor">
     <section id="about_us_anchor" aria-labelledby="about_us" class="section">
@@ -139,9 +150,11 @@
         <h2 id="about_us" class="title">About Us</h2>
         <h3 class="subtitle">We of all trades, master of "some"</h3>
         <div class="container">
-          <p>Web developers with more than <b>4 years</b> of well-rounded experience with a degree in the
+          <p>Web developers with more than <span class="bold">4 years</span> of well-rounded experience with a degree in
+            the
             field of
-            <b>Computer Science</b>, extensive knowledge of modern Web techniques and love for <b>Coffee</b>.
+            <span class="bold">Computer Science</span>, extensive knowledge of modern Web techniques and love for <span
+              class="bold">Coffee</span>.
             Looking for an opportunity to work and upgrade, as well as being involved in an organization that
             believes
             in gaining a competitive edge and giving back to the community.</p>
@@ -150,12 +163,14 @@
 
       <div class="content container">
         <h1 class="title">Hello World</h1>
-        <p>Lorem ipsum<sup><a href="first">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices
+        <p>Lorem ipsum<sup><a href="first">[1]</a></sup> dolor sit amet, consectetur adipiscing elit. Nulla accumsan,
+          metus ultrices
           eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce
           erat
           odio, sollicitudin vel erat vel, interdum mattis neque. Sub<sub>script</sub> works as well!</p>
         <h2 class="title">Second level</h2>
-        <p>Curabitur accumsan turpis pharetra <b>augue tincidunt</b> blandit. Quisque condimentum maximus mi, sit amet
+        <p>Curabitur accumsan turpis pharetra <span class="bold">augue tincidunt</span> blandit. Quisque condimentum
+          maximus mi, sit amet
           commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus
           lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
         <ul>
@@ -165,8 +180,8 @@
           <li>- Ut non enim metus.</li>
         </ul>
         <h3 class="title">Third level</h3>
-        <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="non_ante">non ante</a>. Phasellus lacus ex, semper ac tortor
-          nec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
+        <p>Quisque ante lacus, malesuada ac auctor vitae, congue <a href="non_ante">non ante</a>. Phasellus lacus ex,
+          semper ac tortornec, fringilla condimentum orci. Fusce eu rutrum tellus.</p>
         <ol class="ol-list">
           <li>Donec blandit a lorem id convallis.</li>
           <li>Cras gravida arcu at diam gravida gravida.</li>
@@ -177,8 +192,7 @@
           <li>Vivamus maximus ultricies pulvinar.</li>
         </ol>
         <blockquote class="blockquote">Ut venenatis, nisl scelerisque sollicitudin fermentum, quam libero hendrerit
-          ipsum, ut
-          blandit est tellus sit amet turpis.</blockquote>
+          ipsum, utblandit est tellus sit amet turpis.</blockquote>
         <p>Quisque at semper enim, eu hendrerit odio. Etiam auctor nisl et <em>justo sodales</em> elementum. Maecenas
           ultrices lacus quis neque consectetur, et lobortis nisi molestie.</p>
         <p>Sed sagittis enim ac tortor maximus rutrum. Nulla facilisi. Donec mattis vulputate risus in luctus. Maecenas
@@ -195,8 +209,7 @@
           malesuada nulla. Nulla facilisi. Nullam ac erat ante.</p>
         <h4 class="title">Fourth level</h4>
         <p>Nulla efficitur eleifend nisi, sit amet bibendum sapien fringilla ac. Mauris euismod metus a tellus laoreet,
-          at
-          elementum ex efficitur.</p>
+          at elementum ex efficitur.</p>
         <pre>
           &lt;!DOCTYPE html&gt;
           &lt;html&gt;
@@ -242,8 +255,8 @@
           felis. Etiam iaculis lorem ac nibh bibendum rhoncus. Nam interdum efficitur ligula sit amet ullamcorper. Etiam
           tristique, leo vitae porta faucibus, mi lacus laoreet metus, at cursus leo est vel tellus. Sed ac posuere est.
           Nunc ultricies nunc neque, vitae ultricies ex sodales quis. Aliquam eu nibh in libero accumsan pulvinar.
-          Nullam
-          nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam pharetra
+          Nullam nec nisl placerat, pretium metus vel, euismod ipsum. Proin tempor cursus nisl vel condimentum. Nam
+          pharetra
           varius metus non pellentesque.</p>
         <h5 class="title">Fifth level</h5>
         <p>Aliquam sagittis rhoncus vulputate. Cras non luctus sem, sed tincidunt ligula. Vestibulum at nunc elit.
@@ -339,22 +352,28 @@
           </div>
         </div>
         <div class="tabs is-boxed is-centered main-menu" id="nav">
-          <ul>
-            <li data-target="pane-1" id="1" class="is-active" tabindex="0">
+          <ul role="tablist">
+            <li role="tab" data-target="pane-1" id="1" class="is-active" tabindex="0" aria-selected="true">
               <a>
-                <span class="icon is-small"><span class="fa fa-image"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fa fa-image"></span>
+                </span>
                 <span>Pictures</span>
               </a>
             </li>
-            <li data-target="pane-2" id="2" tabindex="-1">
+            <li role="tab" data-target="pane-2" id="2" tabindex="-1" aria-selected="false">
               <a>
-                <span class="icon is-small"><span class="fab fa-superpowers"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fab fa-superpowers"></span>
+                </span>
                 <span>Team</span>
               </a>
             </li>
-            <li data-target="pane-3" id="3" tabindex="-1">
+            <li role="tab" data-target="pane-3" id="3" tabindex="-1" aria-selected="false">
               <a>
-                <span class="icon is-small"><span class="fa fa-film"></span></span>
+                <span class="icon is-small" aria-hidden="true">
+                  <span class="fa fa-film"></span>
+                </span>
                 <span>Video</span>
               </a>
             </li>
@@ -363,7 +382,7 @@
       </div>
 
       <div class="tab-content container">
-        <div class="tab-pane is-active level" id="pane-1">
+        <div role="tabpanel" class="tab-pane is-active level" id="pane-1">
           <div class="container">
             <div class="columns features">
               <div class="column is-4">
@@ -411,7 +430,7 @@
                 <div class="card">
                   <div class="card-image">
                     <div class="image is-4by3">
-                      <img src="./img/tab-3.jpg" class="modal-button" data-target="modal-image2" alt="picture 2">
+                      <img src="./img/tab-3.jpg" class="modal-button" data-target="modal-image2" alt="picture 3">
                     </div>
                   </div>
                   <div class="card-content">
@@ -429,7 +448,7 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="pane-3">
+        <div role="tabpanel" class="tab-pane" id="pane-3">
           <div class="columns medias">
             <div class="column">
               <div class="media">
@@ -439,7 +458,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <a href="dominic_ipsum"><b>Dominic Ipsum</b></a>
+                      <a href="dominic_ipsum"><span>Dominic Ipsum</span></a>
                       <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
                       fringilla egestas. Nullam condimentum luctus turpis.
                     </p>
@@ -453,7 +472,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <a href="cassie_ipsum"><b>Cassie Ipsum</b></a>
+                      <a href="cassie_ipsum"><span class="bold">Cassie Ipsum</span></a>
                       <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
                       fringilla egestas. Nullam condimentum luctus turpis.
                     </p>
@@ -469,7 +488,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <a href="avery_ipsum"><b>Avery Ipsum</b></a>
+                      <a href="avery_ipsum"><span class="bold">Avery Ipsum</span></a>
                       <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
                       fringilla egestas. Nullam condimentum luctus turpis.
                     </p>
@@ -483,7 +502,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p>
-                      <a href="io_ipsum"><b>io Ipsum</b></a>
+                      <a href="io_ipsum"><span class="bold">io Ipsum</span></a>
                       <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa
                       fringilla egestas. Nullam condimentum luctus turpis.
                     </p>
@@ -494,7 +513,7 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="pane-4">
+        <div role="tabpanel" class="tab-pane" id="pane-4">
           <div class="columns is-centered">
             <div class="column is-three-quarters">
               <div class="title has-text-centered">Inspired video</div>
@@ -590,7 +609,7 @@
         <div class="columns">
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Front end">
                 <h4 class="title">Front End Web Development</h4>
                 <p class="content">
                   Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
@@ -601,7 +620,7 @@
           </div>
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Backend end">
                 <h4 class="title">Back End Web Development</h4>
                 <p class="content">
                   Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
@@ -614,7 +633,7 @@
         <div class="columns">
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Front end development">
                 <h4 class="title">Front End Web Development</h4>
                 <p class="content">
                   Develop Front End using latest standards with HTML5/CSS3 with added funtionality using JavaScript and
@@ -625,7 +644,7 @@
           </div>
           <div class="column">
             <a href="" class="box">
-              <article>
+              <article aria-label="Back end development">
                 <h4 class="title">Back End Web Development</h4>
                 <p class="content">
                   Develop Back End application/service using Node.js or ASP .NET and SQL server or Mongo DB databases.
@@ -970,20 +989,20 @@
             <div class="control">
               <label class="label">
                 Name
-                <input class="input" type="text" placeholder="Text input">
+                <input class="input" type="text" placeholder="Text input" aria-placeholder="Text input"
+                  aria-required="true">
               </label>
             </div>
           </div>
-
           <div class="field">
             <label class="label">
               Username
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text">
-                <span class="icon is-small is-left">
+                <input class="input is-success" type="text" aria-required="true">
+                <span class="icon is-small is-left" aria-hidden="true">
                   <span class="fas fa-user"></span>
                 </span>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right" aria-hidden="true">
                   <span class="fas fa-check"></span>
                 </span>
               </div>
@@ -995,11 +1014,12 @@
             <label class="label">
               Email
               <div class="control has-icons-left has-icons-right">
-                <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-                <span class="icon is-small is-left">
+                <input class="input is-danger" type="email" placeholder="Email input" aria-placeholder="Email input"
+                  value="hello@" aria-required="true">
+                <span class="icon is-small is-left" aria-hidden="true">
                   <span class="fas fa-envelope"></span>
                 </span>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right" aria-hidden="true">
                   <span class="fas fa-exclamation-triangle"></span>
                 </span>
               </div>
@@ -1024,13 +1044,14 @@
             <div class="control">
               <label class="label">
                 Message
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <textarea class="textarea" placeholder="Textarea" aria-placeholder="Textarea"
+                  aria-required="true"></textarea>
               </label>
             </div>
           </div>
 
           <label class="checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-checked="false">
             I agree to the <a href="">terms and conditions</a>
           </label>
 
@@ -1042,7 +1063,7 @@
                 </legend>
                 </legend>
                 <label class="radio">
-                  <input type="radio" name="question">
+                  <input type="radio" name="question" aria-checked="true" checked="true">
                   Yes
                 </label>
                 <label class="radio">
@@ -1055,7 +1076,7 @@
 
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link">Submit</button>
+              <button class="button is-link" aria-pressed="false">Submit</button>
             </div>
             <div class="control">
               <button class="button is-text">Cancel</button>
@@ -1069,7 +1090,7 @@
     <div class="container">
       <div class="columns">
         <div class="column is-3 is-offset-2">
-          <h3 class="title"><b>Lessons</b></h3>
+          <h3 class="title"><span class="bold">Lessons</span></h3>
           <ul>
             <li><a href="">Lorem ipsum dolor sit amet</a></li>
             <li><a href="">Vestibulum errato isse</a></li>
@@ -1081,7 +1102,7 @@
           </ul>
         </div>
         <div class="column is-3">
-          <h3 class="title"><b>News</b></h3>
+          <h3 class="title"><span class="bold">News</span></h3>
           <ul>
             <li><a href="">Labore et dolore magna aliqua</a></li>
             <li><a href="">Kanban airis sum eschelor</a></li>
@@ -1093,7 +1114,7 @@
           </ul>
         </div>
         <div class="column is-4">
-          <h3 class="title"><b>Help</b></h3>
+          <h3 class="title"><span class="bold">Help</span></h3>
           <ul>
             <li><a href="">Objects in space</a></li>
             <li><a href="">Playing cards with coyote</a></li>
@@ -1137,13 +1158,13 @@
     </div>
   </footer>
 
-  <div id="modal-card" class="modal modal-fx-3dSlit" aria-hidden="true">
+  <div id="modal-card" class="modal modal-fx-3dSlit" aria-modal="true" aria-hidden="true">
     <div class="modal-background"></div>
     <div class="modal-content is-tiny">
       <div class="card">
         <div class="card-image">
           <div class="image is-4by3">
-            <img src="https://source.unsplash.com/random/?sig=2" alt="Jane Doe photo">
+            <img src="https://source.unsplash.com/random/?sig=2" alt="Jane Doe">
           </div>
         </div>
         <div class="card-content">
@@ -1153,9 +1174,9 @@
                 <img src="http://www.radfaces.com/images/avatars/linda-barret.jpg" alt="">
               </div>
             </div>
-            <div class="media-content">
-              <h4 class="title">Jane Doe</h4>
-              <h5 class="subtitle">@jane_doe</h5>
+            <div class="media-content" aria->
+              <span class="title">Jane Doe</span>
+              <span class="subtitle">@jane_doe</span>
             </div>
           </div>
           <div class="content">
@@ -1179,23 +1200,23 @@
         </div>
       </div>
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
-  <div id="modal-image1" class="modal modal-fx-3dSlit" aria-hidden="true">
+  <div id="modal-image1" class="modal modal-fx-3dSlit" aria-modal="true" aria-hidden="true">
     <div class="modal-background"></div>
     <div class="modal-content is-huge is-image">
       <img src="https://source.unsplash.com/random/?sig=1" alt="gallery photo 1">
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
-  <div id="modal-image2" class="modal modal-fx-superScaled" aria-hidden=true>
+  <div id="modal-image2" class="modal modal-fx-superScaled" aria-modal="true" aria-hidden="true">
     <div class="modal-background"></div>
     <div class="modal-content  is-image">
       <img src="https://source.unsplash.com/random/?sig=3" alt="gallery photo 2">
     </div>
-    <button class="modal-close is-large"><span class="visually-hidden">Close</span></button>
+    <button class="modal-close is-large">Close</button>
   </div>
 
   <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
