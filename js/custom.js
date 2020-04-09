@@ -12,18 +12,116 @@ setInterval(function () {
   var timePlaceholderNode = document.getElementById('time_on_site');
   if (timePlaceholderNode) {
     minutes++;
-    var textContent = minutes + ' ' + (minutes > 1 ? 'minutes': 'minute') + ' on site';
+    var textContent = minutes + ' ' + (minutes > 1 ? 'minutes' : 'minute') + ' on site';
     timePlaceholderNode.textContent = textContent;
   }
 }, 1000 * 60);
 
-var ARROW_UP_CODE = 'ArrowUp';
-var ARROW_DOWN_CODE = 'ArrowDown';
-var ARROW_RIGHT_CODE = 'ArrowRight';
-var ARROW_LEFT_CODE = 'ArrowLeft';
+var KEY_CODE = {
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_LEFT: 'ArrowLeft',
+  HOME: 'Home',
+  END: 'End',
+  ESCAPE: 'Escape',
+};
+
+var navigationMenuButton = document.getElementById('navigation_menu_button');
+var navigationMenu = document.getElementById('navigation_menu');
+var navigationMenuItems = document.querySelectorAll('#navigation_menu li');
+var navigationMenuLinks = document.querySelectorAll('#navigation_menu li a');
+
+function closeMenu() {
+  navigationMenu.setAttribute('hidden', '');
+  navigationMenuButton.setAttribute('aria-expanded', false);
+}
+
+navigationMenuButton.onclick = function () {
+  navigationMenu.removeAttribute('hidden');
+  navigationMenuButton.setAttribute('aria-expanded', true);
+  if (!navigationMenu.hasAttribute('hidden')) {
+    focusLink(navigationMenuItems, 0);
+  }
+};
+
+navigationMenu.addEventListener('focusout', function (event) {
+  if(!~getElementIndex(navigationMenuLinks, event.relatedTarget)) {
+    closeMenu();
+  }
+});
+
+navigationMenu.onclick = closeMenu;
+
+navigationMenu.onkeydown = function (event) {
+  var listElement = event.target.closest('li');
+  var length = navigationMenuItems.length;
+  if (listElement) {
+    var currentIndex = getElementIndex(navigationMenuItems, listElement);
+    var targetIndex;
+    if (!~currentIndex) {
+      return;
+    }
+    switch (event.code) {
+      case KEY_CODE.ARROW_UP:
+      case KEY_CODE.ARROW_RIGHT: {
+        event.preventDefault();
+        targetIndex = currentIndex === 0 ? String(length - 1) : String(currentIndex - 1);
+        break;
+      }
+      case KEY_CODE.ARROW_DOWN:
+      case KEY_CODE.ARROW_LEFT: {
+        event.preventDefault();
+        targetIndex = currentIndex + 1 === length ? '0' : String(currentIndex + 1);
+        break;
+      }
+      case KEY_CODE.HOME: {
+        event.preventDefault();
+        targetIndex = '0';
+        break;
+      }
+      case KEY_CODE.END: {
+        event.preventDefault();
+        targetIndex = String(length - 1);
+        break;
+      }
+      case KEY_CODE.ESCAPE: {
+        event.preventDefault();
+        navigationMenuButton.focus();
+        break;
+      }
+    }
+    if (targetIndex) {
+      focusLink(navigationMenuItems, targetIndex);
+    }
+  }
+}
+
+function getElementIndex(items, element) {
+  var currentIndex = -1;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] === element) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  return currentIndex;
+}
+
+function focusLink(items, index) {
+  var targetItem;
+  if (items) {
+    targetItem = items[index];
+  }
+
+  if (targetItem && targetItem.firstElementChild && targetItem.firstElementChild.focus) {
+    targetItem.firstElementChild.focus();
+  }
+}
 
 var tabMenu = document.getElementById("nav");
-var liElements = document.querySelectorAll("#nav li");
+var tabElements = document.querySelectorAll("#nav button");
 tabMenu.onclick = function (event) {
   var listElement = event.target.closest("[data-target]");
   if (listElement) {
@@ -32,34 +130,48 @@ tabMenu.onclick = function (event) {
 }
 
 tabMenu.onkeydown = function (event) {
-  var listElement = event.target.closest("[data-target]");
+  var listElement = event.target;
   if (listElement) {
     var id = parseInt(listElement.id);
-    var liElementsLength = liElements.length;
+    var tabElementsLength = tabElements.length;
+    var targetId;
     switch (event.code) {
-      case ARROW_DOWN_CODE:
-      case ARROW_LEFT_CODE: {
+      case KEY_CODE.ARROW_DOWN:
+      case KEY_CODE.ARROW_LEFT: {
         event.preventDefault();
-        handleElement(listElement, id === 1 ? String(liElementsLength) : String(id - 1));
+        targetId = id === 1 ? String(tabElementsLength) : String(id - 1);
         break;
       }
-      case ARROW_UP_CODE:
-      case ARROW_RIGHT_CODE: {
+      case KEY_CODE.ARROW_UP:
+      case KEY_CODE.ARROW_RIGHT: {
         event.preventDefault();
-        handleElement(listElement, id === liElementsLength ? '1' : String(id + 1));
+        targetId = id === tabElementsLength ? '1' : String(id + 1);
         break;
       }
+      case KEY_CODE.HOME: {
+        event.preventDefault();
+        targetId = '1';
+        break;
+      }
+      case KEY_CODE.END: {
+        event.preventDefault();
+        targetId = String(tabElementsLength);
+        break;
+      }
+    }
+    if (targetId) {
+      handleElement(listElement, targetId);
     }
   }
 }
 
-function handleElement(element, newId) {
-  var target = element.dataset.target.replace(element.id, newId);
-  toggleTab(newId, target);
+function handleElement(element, targetId) {
+  var target = element.dataset.target.replace(element.id, targetId);
+  toggleTab(targetId, target);
 }
 
 function toggleTab(selectedNav, targetId) {
-  liElements.forEach(function (navEl) {
+  tabElements.forEach(function (navEl) {
     if (navEl.id == selectedNav) {
       navEl.classList.add("is-active");
       navEl.setAttribute('tabindex', '0');
@@ -75,6 +187,12 @@ function toggleTab(selectedNav, targetId) {
   var tabs = document.querySelectorAll(".tab-pane");
 
   tabs.forEach(function (tab) {
-    tab.style.display = tab.id == targetId ? "block" : "none";
+    if (tab.id === targetId) {
+      tab.style.display = 'block';
+      tab.removeAttribute('hidden', '');
+    } else {
+      tab.setAttribute('hidden', '');
+      tab.style.display = 'none';
+    }
   });
 }
